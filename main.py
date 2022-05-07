@@ -1,4 +1,5 @@
 import spotipy
+import json
 from os import environ as env
 from spotipy.oauth2 import SpotifyClientCredentials
 
@@ -10,6 +11,8 @@ sp = spotipy.Spotify(auth_manager=auth_manager)
 
 playlists = sp.user_playlists('spotify')
 
+tracks = sp.search("A", type="track",market="US")
+print(json.dumps(tracks,sort_keys=True))
 
 
 
